@@ -1,0 +1,31 @@
+---
+export interface IShowcaseProps {
+    title?: string
+    description?: string
+    showExtra?: boolean
+}
+
+const {
+    title = "Welcome To The Astro Crash Course!",
+    description = "Build super fast HTML-first websites using your favorite JavaScript frameworks",
+    showExtra = false
+} = Astro.props as IShowcaseProps
+---
+
+<section class="showcase">
+    <div class="showcase-text">
+        <h1>{title}</h1>
+        <p>{description}</p>
+    </div>
+
+    {showExtra && <>
+        <div class="showcase-img">
+            <img class="logos" src="src/images/framework-logos.png" alt="" />
+            <img class="logos-small" src="src/images/framework-logos-small.png" alt="" />
+        </div>
+
+        <p class="showcase-demo">
+            <small>This is a demo website used for the YouTube crash course</small>
+        </p>
+    </>}
+</section>

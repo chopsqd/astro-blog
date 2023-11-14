@@ -1,0 +1,21 @@
+---
+export interface ICardProps {
+    title: string
+    body: string
+    dark?: boolean
+}
+
+const { title, body, dark = false } = Astro.props as ICardProps
+---
+
+<div class={`card ${dark && 'dark'}`}>
+    <h3>{title}</h3>
+    <p>{body}</p>
+</div>
+
+<style>
+    .dark {
+        background: var(--color-primary);
+        color: #fff
+    }
+</style>
